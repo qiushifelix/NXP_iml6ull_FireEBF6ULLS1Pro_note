@@ -1,0 +1,12 @@
+TOOLCHAINS = /home/lilei/nxp/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf/bin/
+CROSS_COMPILE ?= $(TOOLCHAINS)arm-linux-gnueabihf-
+CC	:= $(CROSS_COMPILE)gcc
+OBJCOPY	:= $(CROSS_COMPILE)objcopy
+AR	:= $(CROSS_COMPILE)ar
+AS	:= $(CROSS_COMPILE)as
+OBJCOPY = $(CROSS_COMPILE)objcopy
+OBJDUMP = $(CROSS_COMPILE)objdump
+NM = $(CROSS_COMPILE)nm
+LINKER	= $(CROSS_COMPILE)ld
+COMPILER = $(CC)
+ELFSIZE = $(CROSS_COMPILE)size
