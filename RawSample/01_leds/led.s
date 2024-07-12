@@ -44,8 +44,8 @@ _start:
 	
 
 	/* 2、设置GPIO1_IO03复用为GPIO1_IO03 */
-	ldr r0, =0X020E0068	/* 将寄存器SW_MUX_GPIO1_IO03_BASE加载到r0中 */
-	ldr r1, =0X5		/* 设置寄存器SW_MUX_GPIO1_IO03_BASE的MUX_MODE为5 */
+	ldr r0, =0x020E006C	/* 将寄存器SW_MUX_GPIO1_IO04_BASE加载到r0中 */
+	ldr r1, =0X5		/* 设置寄存器SW_MUX_GPIO1_IO04_BASE的MUX_MODE为5 */
 	str r1,[r0]
 
 	/* 3、配置GPIO1_IO03的IO属性	
@@ -58,13 +58,13 @@ _start:
      *bit [5:3]: 110 R0/6驱动能力
      *bit [0]: 0 低转换率
      */
-    ldr r0, =0X020E02F4	/*寄存器SW_PAD_GPIO1_IO03_BASE */
+    ldr r0, =0X020E02F8	/*寄存器SW_PAD_GPIO1_IO04_BASE */
     ldr r1, =0X10B0
     str r1,[r0]
 
 	/* 4、设置GPIO1_IO03为输出 */
     ldr r0, =0X0209C004	/*寄存器GPIO1_GDIR */
-    ldr r1, =0X0000008		
+    ldr r1, =0X0000010		
     str r1,[r0]
 
 	/* 5、打开LED0
