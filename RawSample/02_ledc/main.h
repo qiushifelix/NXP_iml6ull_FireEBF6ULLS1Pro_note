@@ -15,7 +15,8 @@ Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
  */
 #define CCM_CCGR0 			*((volatile unsigned int *)0X020C4068)
 #define CCM_CCGR1 			*((volatile unsigned int *)0X020C406C)
-#define CCM_CCGR2 			*((volatile unsigned int *)0X020C4070)
+
+#define CCM_CCGR2 			*((volatile unsigned int *)0X020C4070)
 #define CCM_CCGR3 			*((volatile unsigned int *)0X020C4074)
 #define CCM_CCGR4 			*((volatile unsigned int *)0X020C4078)
 #define CCM_CCGR5 			*((volatile unsigned int *)0X020C407C)
@@ -26,6 +27,9 @@ Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
  */
 #define SW_MUX_GPIO1_IO03 	*((volatile unsigned int *)0X020E0068)
 #define SW_PAD_GPIO1_IO03 	*((volatile unsigned int *)0X020E02F4)
+
+#define SW_MUX_GPIO1_IO04 	*((volatile unsigned int *)0X020E006C)
+#define SW_PAD_GPIO1_IO04 	*((volatile unsigned int *)0X020E02F8)
 
 /* 
  * GPIO1相关寄存器地址 
