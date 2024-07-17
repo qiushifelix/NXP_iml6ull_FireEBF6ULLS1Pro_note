@@ -36,7 +36,7 @@ void clk_enable(void)
 void led_init(void)
 {
 	/* 1、初始化IO复用 */
-	IOMUX_SW_MUX->GPIO1_IO03 = 0X5;		/* 复用为GPIO1_IO03 */
+	IOMUX_SW_MUX->GPIO1_IO04 = 0X5;		/* 复用为GPIO1_IO03 */
 
 
 	/* 2、配置GPIO1_IO03的IO属性	
@@ -49,14 +49,14 @@ void led_init(void)
      *bit [5:3]: 110 R0/6驱动能力
      *bit [0]: 0 低转换率
      */
-    IOMUX_SW_PAD->GPIO1_IO03 = 0X10B0;
+    IOMUX_SW_PAD->GPIO1_IO04 = 0X10B0;
 
 
 	/* 3、初始化GPIO */
-	GPIO1->GDIR = 0X0000008;	/* GPIO1_IO03设置为输出 */
+	GPIO1->GDIR = 0X0000010;	/* GPIO1_IO03设置为输出 */
 
 	/* 4、设置GPIO1_IO03输出低电平，打开LED0 */	
-	GPIO1->DR &= ~(1 << 3);	
+	GPIO1->DR &= ~(1 << 4);	
 	
 }
 
@@ -68,7 +68,7 @@ void led_init(void)
 void led_on(void)
 {
 	/* 将GPIO1_DR的bit3清零 	*/
-	GPIO1->DR &= ~(1<<3); 
+	GPIO1->DR &= ~(1<<4); 
 }
 
 /*
@@ -79,7 +79,7 @@ void led_on(void)
 void led_off(void)
 {
 	/* 将GPIO1_DR的bit3置1 */
-	GPIO1->DR |= (1<<3); 
+	GPIO1->DR |= (1<<4); 
 }
 
 /*
