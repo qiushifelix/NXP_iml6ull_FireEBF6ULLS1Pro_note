@@ -18,7 +18,7 @@ Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
 void led_init(void)
 {
 	/* 1、初始化IO复用 */
-	IOMUXC_SetPinMux(IOMUXC_GPIO1_IO03_GPIO1_IO03,0);		/* 复用为GPIO1_IO03 */
+	IOMUXC_SetPinMux(IOMUXC_GPIO1_IO04_GPIO1_IO04,0);		/* 复用为GPIO1_IO03 */
 	
 	
 	/* 2、、配置GPIO1_IO03的IO属性	
@@ -31,13 +31,13 @@ void led_init(void)
 	 *bit [5:3]: 110 R0/6驱动能力
 	 *bit [0]: 0 低转换率
 	 */
-	IOMUXC_SetPinConfig(IOMUXC_GPIO1_IO03_GPIO1_IO03,0X10B0);
+	IOMUXC_SetPinConfig(IOMUXC_GPIO1_IO04_GPIO1_IO04,0X10B0);
 	
 	/* 3、初始化GPIO,GPIO1_IO03设置为输出*/
-	GPIO1->GDIR |= (1 << 3);	 
+	GPIO1->GDIR |= (1 << 4);	 
 
 	/* 4、设置GPIO1_IO03输出低电平，打开LED0*/
-	GPIO1->DR &= ~(1 << 3);		
+	GPIO1->DR &= ~(1 << 4);		
 }
 
 
@@ -53,9 +53,9 @@ void led_switch(int led, int status)
 	{
 		case LED0:
 			if(status == ON)
-				GPIO1->DR &= ~(1<<3);	/* 打开LED0 */
+				GPIO1->DR &= ~(1<<4);	/* 打开LED0 */
 			else if(status == OFF)
-				GPIO1->DR |= (1<<3);	/* 关闭LED0 */
+				GPIO1->DR |= (1<<4);	/* 关闭LED0 */
 			break;
 	}
 }
