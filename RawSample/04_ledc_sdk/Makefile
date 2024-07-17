@@ -1,5 +1,5 @@
-CROSS_COMPILE ?= arm-linux-gnueabihf-
-NAME		  ?= ledc
+CROSS_COMPILE ?= arm-none-eabi-
+NAME		  ?= ledcSdk
 
 CC 		:= $(CROSS_COMPILE)gcc
 LD		:= $(CROSS_COMPILE)ld
