@@ -41,7 +41,7 @@ int main(void)
 			{
 				case KEY0_VALUE:
 					beep_state = !beep_state;
-					beep_switch(beep_state);
+					led_switch(LED_R, beep_state);
 					break;
 			}
 		}

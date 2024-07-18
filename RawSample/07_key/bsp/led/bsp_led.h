@@ -13,7 +13,7 @@ Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
 ***************************************************************/
 
 #define LED0	0
-
+#define LED_R	1
 /* 函数声明 */
 void led_init(void);
 void led_switch(int led, int status);
