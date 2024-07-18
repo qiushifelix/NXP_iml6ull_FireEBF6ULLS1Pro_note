@@ -66,7 +66,7 @@ void imx6u_clkinit(void)
 	 */
 	CCM_ANALOG->PLL_ARM = (1 << 13) | ((66 << 0) & 0X7F); 	/* 配置pll1_main_clk=792MHz */
 	CCM->CCSR &= ~(1 << 2);									/* 将pll_sw_clk时钟重新切换回pll1_main_clk */
-	CCM->CACRR = 0;											/* ARM内核时钟为pll1_sw_clk/1=792/1=792Mhz */
+	CCM->CACRR = 5;											/* ARM内核时钟为pll1_sw_clk/1=792/1=792Mhz */
 
 	/* 2、设置PLL2(SYS PLL)各个PFD */
 	reg = CCM_ANALOG->PFD_528;
