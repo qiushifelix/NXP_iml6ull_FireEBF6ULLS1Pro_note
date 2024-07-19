@@ -22,7 +22,7 @@ void key_init(void)
 	gpio_pin_config_t key_config;
 	
 	/* 1、初始化IO复用, 复用为GPIO1_IO18 */
-	IOMUXC_SetPinMux(IOMUXC_UART1_CTS_B_GPIO1_IO18,0);
+	IOMUXC_SetPinMux(IOMUXC_SNVS_SNVS_TAMPER1_GPIO5_IO01,0);
 
 	/* 2、、配置UART1_CTS_B的IO属性	
 	 *bit 16:0 HYS关闭
@@ -34,12 +34,12 @@ void key_init(void)
 	 *bit [5:3]: 000 关闭输出
 	 *bit [0]: 0 低转换率
 	 */
-	IOMUXC_SetPinConfig(IOMUXC_UART1_CTS_B_GPIO1_IO18,0xF080);
+	IOMUXC_SetPinConfig(IOMUXC_SNVS_SNVS_TAMPER1_GPIO5_IO01,0xF080);
 	
 	/* 3、初始化GPIO */
 	//GPIO1->GDIR &= ~(1 << 18);	/* GPIO1_IO18设置为输入 */	
 	key_config.direction = kGPIO_DigitalInput;
-	gpio_init(GPIO1,18, &key_config);
+	gpio_init(GPIO5,1, &key_config);
 	
 }
 
@@ -53,14 +53,14 @@ int key_getvalue(void)
 	int ret = 0;
 	static unsigned char release = 1; /* 按键松开 */ 
 
-	if((release==1)&&(gpio_pinread(GPIO1, 18) == 0)) 		/* KEY0 	*/
+	if((release==1)&&(gpio_pinread(GPIO5, 1) == 0)) 		/* KEY0 	*/
 	{	
 		delay(10);		/* 延时消抖 		*/
 		release = 0;	/* 标记按键按下 */
-		if(gpio_pinread(GPIO1, 18) == 0)
+		if(gpio_pinread(GPIO5, 1) == 0)
 			ret = KEY0_VALUE;
 	}
-	else if(gpio_pinread(GPIO1, 18) == 1)
+	else if(gpio_pinread(GPIO5, 1) == 1)
 	{
 		ret = 0;
 		release = 1; 	/* 标记按键释放 */
