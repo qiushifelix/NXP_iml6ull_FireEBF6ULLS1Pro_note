@@ -2,3 +2,4 @@
 Chip: NXP imx6ull
 Board: Fire EBF6ULL S1 Pro
 Code: yanzige
+auther:frank fu
